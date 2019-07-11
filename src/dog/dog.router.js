@@ -47,18 +47,18 @@ module.exports = function(app, Mongoose) {
 		});
 	});
 
-	app.get('/api/dog/:name', (req, res) => {
-		Dog.find().containsName(req.params.name).exec((error, result) => {
-			res.status(200).json(result);
-		});
-	});
-
 	app.get('/api/dogs/hello', (req, res) => {
 		Dog.find((error, result) => {
 			result.forEach((dog) => {
 				console.log(dog.hello);
 			});
 
+			res.status(200).json(result);
+		});
+	});
+
+	app.get('/api/dogs/:name', (req, res) => {
+		Dog.find().containsName(req.params.name).exec((error, result) => {
 			res.status(200).json(result);
 		});
 	});

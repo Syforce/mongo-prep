@@ -27,9 +27,9 @@ module.exports = function(app, Mongoose) {
 	 */
 	app.post('/api/user', (req, res) => {
 		const user = {
-			name: req.body.name | 'Shadow',
-			age: req.body.age | 100,
-			isAdmin: req.body.isAdmin | false
+			name: req.body.name || 'Shadow',
+			age: req.body.age || 100,
+			isAdmin: req.body.isAdmin || false
 		};
 
 		User.create(user, (error, result) => {

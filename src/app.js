@@ -4,7 +4,7 @@ var BodyParser = require("body-parser");
 var BlueBird = require("bluebird");
 
 var app = Express();
-var port = process.env.PORT || 4000;
+var port = process.env.PORT || 4001;
 
 function cors(req, res, next) {
 	res.header('Access-Control-Allow-Origin', "*");
@@ -23,7 +23,7 @@ app.use(BodyParser.urlencoded({ extended: true}));
 app.use("/", Express.static(__dirname + "/exports"));
 
 Mongoose.Promise = BlueBird;
-Mongoose.connect('mongodb://localhost/monex-s01', loadFiles);
+Mongoose.connect('mongodb://localhost/monex-s02', loadFiles);
 
 function loadFiles(error) {
 	if (error) {
